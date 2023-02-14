@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Use this form to add data.
+  hr
+  if msg
+    p(class='readText')= msg
+  form(method='POST', action='/temp/add')
+    input(type='text', name='tempText')
+    | 
+    button(type='submit') Add Data
+    | 
+    a(href='/temp') Cancel
