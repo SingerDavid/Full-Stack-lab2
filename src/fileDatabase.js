@@ -13,6 +13,8 @@ const repo = {
         };
         db.set(newData.id, newData)
     },
+    deleteById: (uuid) => db.delete(uuid),
+    update: (temp) => db.set(temp.id, temp),
 };
 
 //makes this a module to export for use elsewhere.

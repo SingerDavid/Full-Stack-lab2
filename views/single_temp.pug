@@ -3,3 +3,9 @@ extends layout
 block content
   h1= title
   p= singleData.text
+    .temp-actions
+      a(href='/temp') View All
+      | 
+      a(href=`/temp/${singleData.id}/update`) Update
+      | 
+      a(href=`/temp/${singleData.id}/delete`) Delete

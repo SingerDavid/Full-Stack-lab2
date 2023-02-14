@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Use this form to edit this data.
+  hr
+  if msg
+    p(class='readText')= msg
+  form(method='POST', action=`/temp/${temp.id}/update`)
+    input(type='text', name='tempText', value=temp.text)
+    | 
+    button(type='submit') Save Changes
+    | 
+    a(href=`/temp/${temp.id}`) Cancel

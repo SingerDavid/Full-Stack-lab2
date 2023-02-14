@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Are you sure you want to delete the following data?
+  p= temp.text
+  hr
+  form(method='POST', action=`/temp/${temp.id}/delete`)
+    button(type='delete') Confirm Delete
+    | 
+    a(href=`/temp/${temp.id}`) Cancel
