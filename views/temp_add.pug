@@ -9,11 +9,17 @@ block content
       each val in msg
         li(class='readText')= val.msg
   form(method='POST', action='/temp/add')
-    label Text:
-      input(type='text', name='tempText')
+    label First Name:
+      input(type='text', name='tempFirst', required)
     | 
-    label Phone Number:
-      input(type='text', name='tempPhone')
+    label Last Name:
+      input(type='text', name='tempLast', required)
+    | 
+    label Email:
+      input(type='text', name='tempEmail')
+    | 
+    label Comments/Notes:
+      input(type='textarea', name='tempNote')
     | 
     button(type='submit') Add Data
     | 

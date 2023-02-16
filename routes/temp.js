@@ -12,8 +12,8 @@ router.get('/add', tempController.temp_create_get);
 
 /* POST create temp. */
 router.post('/add',
-  body('tempText').trim().notEmpty().withMessage('Text can not be empty!'),
-  body('tempPhone').trim().notEmpty().withMessage('Phone Number can not be empty!').isMobilePhone().withMessage('Phone Number must be a valid number!'),
+  body('tempFirst').trim().notEmpty().withMessage('First name can not be empty!'),
+  body('tempLast').trim().notEmpty().withMessage('Last name can not be empty!'),
   tempController.temp_create_post);
 
 /* GET single temp data. */
@@ -29,6 +29,9 @@ router.post('/:uuid/delete', tempController.temp_delete_post);
 router.get('/:uuid/update', tempController.temp_update_get);
 
 /* POST update temp. */
-router.post('/:uuid/update', tempController.temp_update_post);
+router.post('/:uuid/update',
+body('tempFirst').trim().notEmpty().withMessage('First name can not be empty!'),
+body('tempLast').trim().notEmpty().withMessage('Last name can not be empty!'),
+tempController.temp_update_post);
 
 module.exports = router;

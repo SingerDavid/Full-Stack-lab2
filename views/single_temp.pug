@@ -2,10 +2,15 @@ extends layout
 
 block content
   h1= title
-  p= singleData.text
-    .temp-actions
-      a(href='/temp') View All
-      | 
-      a(href=`/temp/${singleData.id}/update`) Update
-      | 
-      a(href=`/temp/${singleData.id}/delete`) Delete
+  ul
+    li= singleData.first
+    li= singleData.last
+    li= singleData.email
+    li= singleData.note
+    li Last Update: #{singleData.date}
+  ul
+  a(href='/temp') View All
+  | 
+  a(href=`/temp/${singleData.id}/update`) Update
+  | 
+  a(href=`/temp/${singleData.id}/delete`) Delete

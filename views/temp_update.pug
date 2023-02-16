@@ -7,7 +7,17 @@ block content
   if msg
     p(class='readText')= msg
   form(method='POST', action=`/temp/${temp.id}/update`)
-    input(type='text', name='tempText', value=temp.text)
+    label First Name:
+      input(type='text', name='tempFirst', value=temp.first, required)
+    | 
+    label Last Name:
+      input(type='text', name='tempLast', value=temp.last, required)
+    | 
+    label Email:
+      input(type='text', name='tempEmail', value=temp.email)
+    | 
+    label Comments/Notes:
+      input(type='textarea', name='tempNote', value=temp.note)
     | 
     button(type='submit') Save Changes
     | 

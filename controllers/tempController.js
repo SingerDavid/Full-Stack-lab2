@@ -22,7 +22,7 @@ exports.temp_create_post = function(req, res, next) {
   if (!result.isEmpty()) {
     res.render('temp_add', { title: 'Add Data', msg: result.array()})
   } else {
-    const newTemp = new Temp('', req.body.tempText)
+    const newTemp = new Temp('', req.body.tempFirst, req.body.tempLast, req.body.tempEmail, req.body.tempNote, '')
     tempRepo.create(newTemp);
     res.redirect('/temp');
   }

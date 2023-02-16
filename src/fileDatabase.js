@@ -4,6 +4,7 @@ const path = require('path');
 
 const db = new Map();
 const Temp = require('./Temp');
+const makeDate = new Date();
 //db.set('196a2223-0cfa-4a68-89f4-d79fd38d2cf5', {text: "this is temp 1", id: "196a2223-0cfa-4a68-89f4-d79fd38d2cf5"});
 //db.set('2c93684d-4a73-4cf4-a8b7-4f6687482a99', {text: "this is temp 2", id: "2c93684d-4a73-4cf4-a8b7-4f6687482a99"});
 
@@ -13,7 +14,7 @@ const loadData = () => {
     const dataArray = JSON.parse(jsonData);
     dataArray.forEach(element => {
         //change to previous comment is below - essentially recreate it as an object, to know it in memory.
-        const aTemp = new Temp(element[1].id, element[1].text)
+        const aTemp = new Temp(element[1].id, element[1].first, element[1].last, element[1].email, element[1].note, element[1].date)
         db.set(aTemp.id, aTemp);
     });
 };
@@ -28,6 +29,7 @@ const repo = {
     findById: (uuid) => db.get(uuid),
     create: (temp) => {
         temp.id = crypto.randomUUID(),
+        temp.date = makeDate.getFullYear() + "-" + ('0' + (makeDate.getMonth() + 1)).slice(-2) + "-" + ('0'+ makeDate.getDate()).slice(-2),
         db.set(temp.id, temp)
         saveData();
     },
@@ -36,6 +38,7 @@ const repo = {
         saveData();
     },
     update: (temp) => {
+        temp.date = makeDate.getFullYear() + "-" + ('0' + (makeDate.getMonth() + 1)).slice(-2) + "-" + ('0'+ makeDate.getDate()).slice(-2) + "Imagine the date changed here",
         db.set(temp.id, temp);
         saveData();
     },

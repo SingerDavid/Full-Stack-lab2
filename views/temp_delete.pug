@@ -3,7 +3,11 @@ extends layout
 block content
   h1= title
   p Are you sure you want to delete the following data?
-  p= temp.text
+  ul.temp-list
+    li= temp.first
+    li= temp.last
+    li= temp.email
+    li= temp.note
   hr
   form(method='POST', action=`/temp/${temp.id}/delete`)
     button(type='delete') Confirm Delete

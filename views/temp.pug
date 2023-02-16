@@ -9,5 +9,9 @@ block content
     #temp-wrapper
       ul.temp-list
         each val in temp
-          li(data-tempId=val.id)
-            a(href=`/temp/${val.id}`)= val.text
+          li= val.first
+          li= val.last
+          li= val.email
+          li= val.note
+          li Last update: #{val.date}
+          a(href=`/temp/${val.id}`) -view-

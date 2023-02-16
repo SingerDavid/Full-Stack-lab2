@@ -1,7 +1,11 @@
 class Temp {
-    constructor(id, text) {
+    constructor(id, first, last, email, note, date) {
         this.id = id;
-        this.text = text;
+        this.first = first;
+        this.last = last;
+        this.email = email;
+        this.note = note;
+        this.date = date;
     }
 }
 
