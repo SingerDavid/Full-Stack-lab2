@@ -5,9 +5,15 @@ block content
   p Use this form to add data.
   hr
   if msg
-    p(class='readText')= msg
+    ul
+      each val in msg
+        li(class='readText')= val.msg
   form(method='POST', action='/temp/add')
-    input(type='text', name='tempText')
+    label Text:
+      input(type='text', name='tempText')
+    | 
+    label Phone Number:
+      input(type='text', name='tempPhone')
     | 
     button(type='submit') Add Data
     | 
