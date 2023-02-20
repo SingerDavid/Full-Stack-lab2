@@ -2,7 +2,8 @@ extends layout
 
 block content
   h1= title
-  p Use this form to add data.
+  hr
+  p.add Use this form to add data.
   hr
   if msg
     ul
@@ -11,16 +12,16 @@ block content
   form(method='POST', action='/temp/add')
     label First Name:
       input(type='text', name='tempFirst', required)
-    | 
+
     label Last Name:
       input(type='text', name='tempLast', required)
-    | 
+
     label Email:
       input(type='text', name='tempEmail')
-    | 
+
     label Comments/Notes:
       input(type='textarea', name='tempNote')
-    | 
-    button(type='submit') Add Data
-    | 
-    a(href='/temp') Cancel
+
+    button(type='submit') Add Contact
+
+    a.cancel(href='/temp') Cancel

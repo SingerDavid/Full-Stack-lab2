@@ -6,12 +6,12 @@ const Temp = require('../src/Temp');
 /* GET users listing. */
 exports.temp_lists = function(req, res, next) {
   const data = tempRepo.findAll();
-  res.render('temp', { title: 'Express Temp', temp: data });
+  res.render('temp', { title: 'View All Contacts', temp: data });
 };
 
 /* GET create temp form. */
 exports.temp_create_get = function(req, res, next) {
-  res.render('temp_add', { title: 'Add'});
+  res.render('temp_add', { title: 'Add New Contact'});
 };
 
 /* POST create temp. */
@@ -32,7 +32,7 @@ exports.temp_create_post = function(req, res, next) {
 exports.temp_single_detail = function(req, res, next) {
   const singleData = tempRepo.findById(req.params.uuid)
   if (singleData) {
-    res.render('single_temp', { title: 'Single Result', singleData: singleData });
+    res.render('single_temp', { title: 'Contact Information', singleData: singleData });
   } else {
     res.redirect('/temp');
   }

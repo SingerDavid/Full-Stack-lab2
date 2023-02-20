@@ -2,16 +2,18 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  a(href='/temp/add') Add Data
+  hr
+  p.temp Currently viewing all existing contacts.
+  p.temp From here, click on the contact box that you would like additional information on or you wish to make changes to.
+  a.link(href='/temp/add') Add Contact
   hr
   if temp.length > 0
     #temp-wrapper
-      ul.temp-list
-        each val in temp
-          li= val.first
-          li= val.last
-          li= val.email
-          li= val.note
-          li Last update: #{val.date}
-          a(href=`/temp/${val.id}`) -view-
+      each val in temp
+        a.solo(href=`/temp/${val.id}`): ul.temp-list
+          li First:
+            li.attr= val.first
+          li Last:
+            li.attr= val.last
+          li Email:
+            li.attr= val.email

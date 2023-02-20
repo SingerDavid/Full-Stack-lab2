@@ -2,15 +2,23 @@ extends layout
 
 block content
   h1= title
+  hr
+  p.single You are now viewing a single contact.
+  ul.singleContact
+    li.singleName First:
+      li.sData #{singleData.first}
+    li.singleName Last:
+      li.sData #{singleData.last}
+    li.singleName Email:
+      li.sData #{singleData.email}
+    li.singleName Notes:
+      li.sData #{singleData.note}
+    li.singleName Last Update:
+      li.sData #{singleData.date}
   ul
-    li= singleData.first
-    li= singleData.last
-    li= singleData.email
-    li= singleData.note
-    li Last Update: #{singleData.date}
-  ul
-  a(href='/temp') View All
+  hr
+  a.link(href='/temp') View All
   | 
-  a(href=`/temp/${singleData.id}/update`) Update
+  a.link(href=`/temp/${singleData.id}/update`) Update
   | 
-  a(href=`/temp/${singleData.id}/delete`) Delete
+  a.link(href=`/temp/${singleData.id}/delete`) Delete
