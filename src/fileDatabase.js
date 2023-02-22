@@ -38,7 +38,7 @@ const repo = {
         saveData();
     },
     update: (temp) => {
-        temp.date = makeDate.getFullYear() + "-" + ('0' + (makeDate.getMonth() + 1)).slice(-2) + "-" + ('0'+ makeDate.getDate()).slice(-2) + "Imagine the date changed here",
+        temp.date = makeDate.getFullYear() + "-" + ('0' + (makeDate.getMonth() + 1)).slice(-2) + "-" + ('0'+ makeDate.getDate()).slice(-2),
         db.set(temp.id, temp);
         saveData();
     },
