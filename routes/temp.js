@@ -30,8 +30,8 @@ router.get('/:uuid/update', tempController.temp_update_get);
 
 /* POST update temp. */
 router.post('/:uuid/update',
-body('tempFirst').trim().notEmpty().withMessage('First name can not be empty!'),
-body('tempLast').trim().notEmpty().withMessage('Last name can not be empty!'),
-tempController.temp_update_post);
+  body('tempFirst').trim().notEmpty().withMessage('First name can not be empty!'),
+  body('tempLast').trim().notEmpty().withMessage('Last name can not be empty!'),
+  tempController.temp_update_post);
 
 module.exports = router;

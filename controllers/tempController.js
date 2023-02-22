@@ -1,4 +1,4 @@
-const tempRepo = require('../src/fileDatabase');
+const tempRepo = require('../src/sqliteDatabase');
 const { validationResult } = require('express-validator');
 const Temp = require('../src/Temp');
 
@@ -59,13 +59,14 @@ exports.temp_update_get = function(req, res, next) {
 
 /* POST update temp. */
 exports.temp_update_post = function(req, res, next) {
-  //console.log(req.body);
-  if (req.body.tempText.trim() === '') {
+  console.log(req.body);
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
     const temp = tempRepo.findById(req.params.uuid)
-    res.render('temp_update', { title: 'Update Data', msg: 'Field can not be empty', temp: temp})
+    res.render('temp_update', { title: 'Update Data', msg: result.array(), temp: temp})
   } else {
     //update db
-    const updateTemp = new Temp(req.params.uuid, req.body.tempText.trim());
+    const updateTemp = new Temp(req.params.uuid, req.body.tempFirst.trim(), req.body.tempLast.trim(), req.body.tempEmail.trim(), req.body.tempNote.trim())
     tempRepo.update(updateTemp);
     res.redirect(`/temp/${req.params.uuid}`);
   }
