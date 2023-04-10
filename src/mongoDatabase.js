@@ -15,7 +15,7 @@ const makeDate = new Date();
 const {MongoClient, ObjectId} = require('mongodb');
 
 //atlas url here
-const url = 'fffff'
+const url = process.env.MONGODB;
 
 const client = new MongoClient(url)
 
